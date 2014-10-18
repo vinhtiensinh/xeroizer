@@ -56,6 +56,7 @@ module Xeroizer
         # headers = {'Accept-Encoding' => 'gzip, deflate'}
 
         headers = self.default_headers.merge({ 'charset' => 'utf-8' })
+        params = params.merge(unitdp: 4)
 
         if method != :get
           headers['Content-Type'] ||= "application/x-www-form-urlencoded"
