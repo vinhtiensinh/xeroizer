@@ -31,8 +31,7 @@ module Xeroizer
       # Description-only lines have been allowed since Xero V2.09.
       def line_amount(summary_only = false)
         return attributes[:line_amount] if summary_only || @line_amount_set
-        
-        BigDecimal((quantity * unit_amount).to_s).round(2) if quantity && unit_amount
+        BigDecimal((quantity * unit_amount * ((100.0 - discount_rate)/100.0)).to_s).round(2) if quantity && unit_amount
       end
       
     end
