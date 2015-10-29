@@ -15,6 +15,10 @@ module Xeroizer
       guid    :item_id
       string  :code
       string  :description
+      string  :name
+      decimal :quantity_on_hand
+
+
       
       belongs_to :purchase_details, :model_name => 'ItemPurchaseDetails'
       belongs_to :sales_details, :model_name => 'ItemSalesDetails'
