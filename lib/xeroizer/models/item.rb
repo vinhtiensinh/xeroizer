@@ -14,6 +14,8 @@ module Xeroizer
       
       guid    :item_id
       string  :code
+      string  :code
+      string  :inventory_asset_account_code
       string  :description
       string  :name
       decimal :quantity_on_hand
