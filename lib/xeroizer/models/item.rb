@@ -5,6 +5,10 @@ module Xeroizer
         
       set_permissions :read, :write, :update
       
+      def mark_dirty(resource)
+        return if resource.is_a?(ItemSalesDetails) || resource.is_a?(ItemPurchaseDetails)
+        super
+      end
     end
     
     class Item < Base
@@ -26,7 +30,7 @@ module Xeroizer
       belongs_to :sales_details, :model_name => 'ItemSalesDetails'
       
       validates_presence_of :code
-      
+
     end
     
   end

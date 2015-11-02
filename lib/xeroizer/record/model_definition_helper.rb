@@ -85,7 +85,9 @@ module Xeroizer
         
         # Returns the value of the Xero primary key for this record if it exists.
         def id
-          self[self.class.primary_key_name]
+          if self.class.primary_key_name
+            self[self.class.primary_key_name]
+          end
         end
 
         # Sets the value of the Xero primary key for this record if it exists.
