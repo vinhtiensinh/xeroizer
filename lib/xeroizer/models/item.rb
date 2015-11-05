@@ -23,6 +23,7 @@ module Xeroizer
       string  :description
       string  :name
       decimal :quantity_on_hand
+      boolean :is_tracked_as_inventory
 
 
       
