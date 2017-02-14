@@ -34,7 +34,7 @@ module Xeroizer
       validates_presence_of :invoice
 
       def save
-        if self.repayment
+        if self.prepayment
           self.parent.prepayment = self.prepayment
         elsif self.credit_note
           self.parent.credit_note = self.credit_note
