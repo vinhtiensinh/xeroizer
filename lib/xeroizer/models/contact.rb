@@ -1,4 +1,5 @@
 require "xeroizer/models/contact_person"
+require "xeroizer/models/payment_terms"
 
 module Xeroizer
   module Record
@@ -38,11 +39,13 @@ module Xeroizer
       datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
       boolean       :is_supplier
       boolean       :is_customer
+      decimal       :discount
 
-      has_many  :addresses, :list_complete => true
-      has_many  :phones, :list_complete => true
-      has_many  :contact_groups
-      has_many  :contact_persons, :internal_name => :contact_people
+      has_many :addresses, :list_complete => true
+      has_many :phones, :list_complete => true
+      has_many :contact_groups
+      has_many :contact_persons, :internal_name => :contact_people
+      has_one  :payment_terms, :model_name => 'PaymentTerms', :list_complete => true
 
       validates_presence_of :name
       validates_inclusion_of :contact_status, :in => CONTACT_STATUS.keys, :allow_blanks => true
@@ -50,8 +53,6 @@ module Xeroizer
       def email_address?
         email_address.present?
       end
-
     end
-
   end
 end

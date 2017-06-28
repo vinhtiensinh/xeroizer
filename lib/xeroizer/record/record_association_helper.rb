@@ -30,6 +30,8 @@ module Xeroizer
           end
         end
 
+        alias_method :has_one, :belongs_to
+
         def has_many(field_name, options = {})
           internal_field_name = options[:internal_name] || field_name
           internal_singular_field_name = internal_field_name.to_s.singularize
