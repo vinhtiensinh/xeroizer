@@ -36,7 +36,6 @@ module Xeroizer
         :request_token_path => "/oauth/RequestToken",
         :access_token_path  => "/oauth/AccessToken",
         :authorize_path     => "/oauth/Authorize",
-        :ca_file            => File.expand_path(File.join(File.dirname(__FILE__), 'ca-certificates.crt'))
       }.freeze
     end
     
@@ -127,10 +126,6 @@ module Xeroizer
       # this instance was created.
       def create_consumer
         consumer = ::OAuth::Consumer.new(@ctoken, @csecret, consumer_options)
-        if @consumer_options[:ssl_client_cert] && @consumer_options[:ssl_client_key]
-          consumer.http.cert = @consumer_options[:ssl_client_cert]
-          consumer.http.key = @consumer_options[:ssl_client_key]
-        end
         consumer
 
         if @consumer_options[:http_debug_output]
