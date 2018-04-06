@@ -26,6 +26,7 @@ module Xeroizer
     record :Organisation
     record :Payment
     record :Prepayment
+    record :Overpayment
     record :Receipt
     record :TaxRate
     record :TrackingCategory
