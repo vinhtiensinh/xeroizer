@@ -36,6 +36,7 @@ module Xeroizer
         :request_token_path => "/oauth/RequestToken",
         :access_token_path  => "/oauth/AccessToken",
         :authorize_path     => "/oauth/Authorize",
+        :timeout            => 300,
       }.freeze
     end
     
