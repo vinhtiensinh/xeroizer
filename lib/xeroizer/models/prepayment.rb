@@ -23,6 +23,7 @@ module Xeroizer
       datetime_utc  :fully_paid_on_date
       string        :type
       string        :reference
+      string        :invoice_number
       decimal       :currency_rate
       decimal       :remaining_credit
       boolean       :has_attachments
