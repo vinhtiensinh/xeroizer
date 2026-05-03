@@ -21,11 +21,11 @@ module Xeroizer
       string        :reference
       datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
       boolean       :is_reconciled
+      string        :invoice_number
 
       belongs_to    :account
       belongs_to    :invoice
       belongs_to    :credit_note
-      string        :invoice_number
 
       def invoice_id
         invoice.id if invoice
